@@ -6,7 +6,6 @@
 
 # dependencies
 /node_modules
-/server/db
 
 # IDEs and editors
 /.idea
