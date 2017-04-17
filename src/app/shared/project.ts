@@ -1,4 +1,4 @@
-import { Expense } from '../toolkit/expense';
+import { Expense } from './expense';
 
 export class Project {
     id: string = '';
