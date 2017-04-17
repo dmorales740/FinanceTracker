@@ -1,0 +1,9 @@
+.msg {
+    display:block;
+    background-color: #CCC;
+    padding: 10px;
+    border-radius: 5px;
+}
+.msg span, .msg p {
+    margin: 0px;
+}

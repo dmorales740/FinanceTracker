@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-3">
+        <div id="budget-display">
+            <p class="lead">Budget: </p>
+            <b *ngIf="!editProject">${{ project.budget }}</b>
+            <div *ngIf="editProject" class="input-group">
+                <span class="input-group-addon">$</span>
+                <input [(ngModel)]="project.budget" type="text" class="form-control" 
+                    aria-label="Amount (to the nearest dollar)">
+                <span class="input-group-addon">.00</span>
+            </div>    
+        </div>
+    </div>
+    <div class="col-md-9">
+        <dl class="dl-horizontal">
+            <dt> </dt>
+            <dd>
+                <button *ngIf="!editProject" type="button" class="btn btn-link" (click)="editProject = true;">
+                    <span class="fa fa-pencil"></span> Edit
+                </button>
+                <button *ngIf="editProject" type="button" class="btn btn-link" (click)="saveProject()">
+                    <span class="fa fa-save"></span> Save
+                </button>
+            </dd>
+            <dt>{{ project.type }} Project</dt>
+            <dd>
+                <label class="radio-inline">
+                    <input type="radio" name="status" [value]="false"
+                        [(ngModel)]="project.isFinished" /> In progress
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="status" [value]="true" 
+                        [(ngModel)]="project.isFinished" /> Finished
+                </label>
+            </dd>
+            <dt>Date:</dt>
+            <dd>{{ project.date }}</dd>
+            <dt>Estimate:</dt>
+            <dd *ngIf="!editProject">${{ project.estimate }}</dd>
+            <dd *ngIf="editProject">
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input [(ngModel)]="project.estimate" type="text" class="form-control" 
+                        id="estimate" name="estimate" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Description</dt>
+            <dd *ngIf="!editProject">{{ project.description }}</dd>
+            <dd *ngIf="editProject">
+                <textarea [(ngModel)]="project.description" id="description" name="description" 
+                    class="form-control"></textarea>
+            </dd>
+        </dl>
+    </div>
+    
+</div>

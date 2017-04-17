@@ -1,0 +1,20 @@
+#expense-total {
+    display: inline-block;
+    padding: 15px;
+    background-color: darkorange;
+    border-radius: 10px;
+    margin: 20px 10px;
+}
+#expense-total p, #expense-total b{
+    display: inline;
+    color: white;
+}
+#expense-total b {
+    font-size: 2em;
+}
+#list-msg {
+    margin-top: 50px;
+}
+#list-msg p {
+    text-align: center;
+}

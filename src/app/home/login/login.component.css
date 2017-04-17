@@ -1,0 +1,19 @@
+section {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #EEE;
+}
+i.fa-user-circle {
+    display: block;
+    margin: 40px;
+    font-size: 10em;
+    color: seagreen;
+    text-align: center;
+}
+button {
+    width: 60%;
+    margin: 20px 20%;
+}

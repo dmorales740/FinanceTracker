@@ -1,0 +1,23 @@
+<div *ngIf="loosingMoney" class="msg">
+    <p>
+        <span class="fa fa-exclamation-circle"></span> 
+        Ups, it looks like you're loosing money with this project!
+    </p>
+</div>
+<section class="row">
+    <div class="col-md-6">
+        <app-pie-chart [pieChartData]="pieChartData" [pieChartLabels]="pieChartLabels"></app-pie-chart>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Revenue:</dt>
+            <dd>${{ project.estimate }}</dd>
+            <dt>Cost:</dt>
+            <dd>${{ cost }}</dd>
+            <dt>Profit</dt>
+            <dd>${{ profit }}</dd>
+            <dt>Loss:</dt>
+            <dd>${{ loss }}</dd>
+        </dl>
+    </div>
+</section>

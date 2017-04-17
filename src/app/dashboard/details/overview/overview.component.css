@@ -1,0 +1,17 @@
+#budget-display {
+    display: inline-block;        
+    padding: 15px;   
+    background-color:green; 
+    border-radius: 10px;
+    margin: 20px 10px;
+}
+#budget-display p, #budget-display b {
+    display: inline;
+    color: white;    
+}
+#budget-display b {
+    font-size: 2em;
+}
+form button {
+    margin: 25px 0px;
+}

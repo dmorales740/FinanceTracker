@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#homeNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#">FinanceTracker</a>
+    </div>
+    <div class="collapse navbar-collapse" id="homeNavbar">
+        <ul class="nav navbar-nav">
+            <li class="active"><a routerLink="/"><span class="fa fa-home"></span> Home</a></li>
+            <li><a routerLink="/about"><span class="fa fa-info-circle"></span> About</a></li>
+            <li><a routerLink="/contact"><span class="fa fa-envelope-open"></span> Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a routerLink="/signup"><i class="fa fa-user-plus"></i>Sign up</a></li>
+            <li *ngIf="!isLoggedIn"><a routerLink="/login"><i class="fa fa-sign-in"></i>Log in</a></li>
+            <li *ngIf="isLoggedIn">
+                <button type="button" routerLink="/dashboard" class="btn btn-success navbar-btn">
+                    <i class="fa fa-user"></i>Hello {{ username }}
+                </button>
+            </li>
+        </ul>
+     </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,21 @@
+#myCarousel {
+    width: 100%;
+    height: 50vh;
+    background-color: greenyellow;
+}
+.carousel-inner {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    margin: 0px auto;
+}
+.item {
+    height: 100%;
+}
+.carousel-caption {
+    color: Green;    
+    top: 20%;
+}
+.carousel-caption > h3 {
+    font-size: 3em;   
+}

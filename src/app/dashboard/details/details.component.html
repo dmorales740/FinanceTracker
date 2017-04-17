@@ -1,0 +1,13 @@
+<h1>{{ project.title }}</h1> 
+<nav>
+    <ul class="nav nav-tabs">
+        <li #overview role="presentation" [class.active]="showOverview"><a href="#" (click)="showTab(true, false, false)">Overview</a></li>
+        <li role="presentation" [class.active]="showExpenses"><a href="#" (click)="showTab(false, true, false)">Expenses</a></li>
+        <li role="presentation" [class.active]="showReport"><a href="#" (click)="showTab(false, false, true)">Report</a></li>
+    </ul>
+</nav>
+<section class="container-fluid">
+    <app-overview [project]="project" *ngIf="showOverview"></app-overview>
+    <app-expenses [project]="project" *ngIf="showExpenses"></app-expenses>
+    <app-report [project]="project" *ngIf="showReport"></app-report>
+</section>

@@ -1,0 +1,65 @@
+<h1> Projects {{projects.length}}</h1>
+<div class="row">
+    <section class="col-md-8">
+        <div *ngIf="projects.length == 0" class="msg-container">
+            <p>
+                <i class="fa fa-info fa-lg"></i>
+                You currently have no projects... 
+            </p>
+        </div>
+        <div *ngFor="let project of projects" class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">{{ project.title }}</div>
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th>Date</th>
+                    <th>Budget</th>
+                    <th>Estimate</th>
+                    <th>View</th>
+                </tr>
+                <tr>
+                    <td>{{ project.date }}</td>
+                    <td>{{ project.budget }}</td>
+                    <td>{{ project.estimate }}</td>
+                    <td><a [routerLink]="['../details', project.id]">Details <span class="fa fa-angle-double-right"></span></a></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="col-md-4">
+        <form>
+            <fieldset>
+                <legend>Create Project:</legend>
+                <div class="form-group">
+                    <select [(ngModel)]="newProject.type" class="form-control" id="type" name="type" required >
+                        <option value="default">Select project type</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" [(ngModel)]="newProject.title" id="title" name="title" 
+                        class="form-control" required placeholder="project title..." />
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget:</label>
+                    <input type="number" [(ngModel)]="newProject.budget" id="budget" name="budget" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="estimate">Estimate:</label>
+                    <input type="number" [(ngModel)]="newProject.estimate" id="estimate" name="estimate" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea [(ngModel)]="newProject.description" id="description" name="description" 
+                        cols="50" rows="5" placeholder="project description...">
+
+                    </textarea>
+                </div>
+                <input type="button" value="X Clear" (click)="clearNewProject()" class="btn btn-default" />
+                <input type="button" value="Save" (click)="addNewProject()" class="btn btn-primary" />
+            </fieldset>
+        </form>
+    </section>
+</div>

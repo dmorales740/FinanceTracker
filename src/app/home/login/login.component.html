@@ -1,0 +1,26 @@
+<section>
+  <i class="fa fa-user-circle"></i>
+  <p *ngIf="msg != ''">
+    <span class="fa fa-exclamation-circle"></span>
+    <i>{{ msg }}</i>
+  </p>
+  <form>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" [(ngModel)]="user.username" class="form-control" 
+        id="username" name="username" placeholder="Type your username..." required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" [(ngModel)]="user.password" class="form-control" 
+          id="password" name="password" placeholder="Type your password..." required />
+    </div>
+    <div class="checkbox">
+      <label>
+        <input [checked]="keepLoggedIn" type="checkbox" (change)="keepLoggedIn = keepLoggedIn ? false: true;"> 
+        Keep me signed in.
+      </label>
+    </div>
+    <button type="submit" (click)="login()" class="btn btn-primary">Log in</button>
+  </form>
+</section>
