@@ -1,10 +1,12 @@
-import { Expense } from '../toolkit/expense';
+import { Expense } from './expense';
 
 export class Project {
     id: string = '';
     userId: string = '';
     isFinished: boolean = false;
-    date: string;
+    date: Date;
+    stringDate: string;
+    stringTime: string;
     title: string = '';
     type: string = 'default';
     budget: number = 0.0;
@@ -14,8 +16,10 @@ export class Project {
 
     constructor(id: string) {
         this.userId = id;
-        let d = new Date();
-        this.date = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+        this.date = new Date();
+        this.stringDate = (this.date.getMonth() + 1) + '/' + this.date.getDate() + '/' + this.date.getFullYear();
+        this.stringTime = this.date.getHours() + ':' + this.date.getMinutes();
+        this.stringTime += this.date.getHours() < 12 ? 'am' : 'pm';
     }
 }
 

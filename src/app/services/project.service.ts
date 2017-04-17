@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import { Project } from '../shared/project';
 
@@ -11,11 +12,13 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class ProjectService {
     userId: string;
+    apiURL: string;
     
     constructor(
         private http: Http
     ) {
         this.init();
+        this.apiURL = environment.apiURL;
     }
     init() {
         if (localStorage.getItem('id') != null) {
@@ -31,7 +34,7 @@ export class ProjectService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:8081/project/update', body, options )
+        return this.http.post(this.apiURL + 'project/update', body, options )
             .map(response => response.json())
             .catch(this.handleError);
     }
@@ -41,7 +44,7 @@ export class ProjectService {
         const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         const options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:8081/project/all', body, options )
+        return this.http.post(this.apiURL + 'project/all', body, options )
             .map(response => response.json())
             .catch(this.handleError);
     }
@@ -51,7 +54,7 @@ export class ProjectService {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:8081/project/add', body, options )
+        return this.http.post(this.apiURL + 'project/add', body, options )
             .map(response => response.json())
             .catch(this.handleError);
     }
@@ -61,7 +64,7 @@ export class ProjectService {
         params.set('id', id);
         const options = new RequestOptions({ headers: headers, search: params});
         
-        return this.http.get('http://localhost:8081/project/details', options)
+        return this.http.get(this.apiURL + 'project/details', options)
             .map(response => response.json())
             .catch(this.handleError);
             

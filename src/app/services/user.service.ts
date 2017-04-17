@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -10,8 +11,11 @@ import { User } from '../shared/user';
 
 @Injectable()
 export class UserService {
+  private apiURL: string;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.apiURL = environment.apiURL;
+  }
 
   signOut() {
     localStorage.removeItem('user');
@@ -24,7 +28,7 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8081/user/login', body, options)
+    return this.http.post(this.apiURL + 'user/login', body, options)
       .map(response => response.json())
       .catch(this.handleError);
   }
@@ -52,7 +56,7 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:8081/user/signup', body, options)
+    return this.http.post(this.apiURL + 'user/signup', body, options)
       .map(response => response.json())
       .catch(this.handleError);
   }

@@ -7,3 +7,24 @@
 .msg span, .msg p {
     margin: 0px;
 }
+section {
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+}
+.pie-wrap {
+    width: 100%;
+    max-width: 300px;
+    margin: 50px auto;
+}
+.data-wrap {
+    -webkit-flex-flow: column nowrap;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+}
+.data-wrap > dl {
+    margin: 0px auto;
+}

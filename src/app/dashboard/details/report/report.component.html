@@ -4,11 +4,11 @@
         Ups, it looks like you're loosing money with this project!
     </p>
 </div>
-<section class="row">
-    <div class="col-md-6">
+<section>
+    <div class="pie-wrap">
         <app-pie-chart [pieChartData]="pieChartData" [pieChartLabels]="pieChartLabels"></app-pie-chart>
     </div>
-    <div class="col-md-6">
+    <div class="data-wrap">
         <dl class="dl-horizontal">
             <dt>Revenue:</dt>
             <dd>${{ project.estimate }}</dd>

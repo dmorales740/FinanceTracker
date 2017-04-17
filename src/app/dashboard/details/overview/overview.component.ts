@@ -15,7 +15,6 @@ export class OverviewComponent {
 
     constructor(private projectService: ProjectService) {
         this.editProject = false;
-        //alert(this.project.title);
     }
     saveProject() {
         this.projectService.saveProject(this.project)

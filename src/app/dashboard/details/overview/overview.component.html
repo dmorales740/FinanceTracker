@@ -34,7 +34,7 @@
                 </label>
             </dd>
             <dt>Date:</dt>
-            <dd>{{ project.date }}</dd>
+            <dd>{{ project.stringDate }} at {{ project.stringTime }}</dd>
             <dt>Estimate:</dt>
             <dd *ngIf="!editProject">${{ project.estimate }}</dd>
             <dd *ngIf="editProject">

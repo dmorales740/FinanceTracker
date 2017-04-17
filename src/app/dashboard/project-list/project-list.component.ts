@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class ProjectListComponent implements OnInit {
     projects: Project[] = [];
     newProject: Project;
+    msg: string;
 
     constructor(
         private projectService: ProjectService,
@@ -31,6 +32,10 @@ export class ProjectListComponent implements OnInit {
     }
     addNewProject() {
         let aProject = this.newProject;
+        if(this.newProject.type === 'default' || this.newProject.title === '') {
+            this.msg = 'Type and title are required.';
+            return false;
+        }
         this.projectService.addProject(aProject)
             .subscribe(
                 res => {
@@ -45,5 +50,6 @@ export class ProjectListComponent implements OnInit {
         this.newProject.type = 'default';
         this.newProject.budget = 0;
         this.newProject.estimate = 0;
+        this.msg = '';
     }
 }

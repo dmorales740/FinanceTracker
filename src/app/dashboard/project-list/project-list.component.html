@@ -1,4 +1,4 @@
-<h1> Projects {{projects.length}}</h1>
+<h1> Projects {{ projects.length }}</h1>
 <div class="row">
     <section class="col-md-8">
         <div *ngIf="projects.length == 0" class="msg-container">
@@ -16,23 +16,29 @@
                     <th>Date</th>
                     <th>Budget</th>
                     <th>Estimate</th>
-                    <th>View</th>
+                    <th> </th>
                 </tr>
                 <tr>
-                    <td>{{ project.date }}</td>
+                    <td>{{ project.stringDate }}</td>
                     <td>{{ project.budget }}</td>
                     <td>{{ project.estimate }}</td>
-                    <td><a [routerLink]="['../details', project.id]">Details <span class="fa fa-angle-double-right"></span></a></td>
+                    <td>
+                        <a [routerLink]="['../details', project.id]"><span class="fa fa-pencil"></span></a>
+                        <a href="#"><span class="fa fa-trash"></span></a>
+                    </td>
                 </tr>
             </table>
         </div>
     </section>
     <section class="col-md-4">
+        <div *ngIf="msg" class="error">
+            <span class="fa fa-exclamation-circle"></span> {{ msg }}
+        </div>
         <form>
             <fieldset>
                 <legend>Create Project:</legend>
                 <div class="form-group">
-                    <select [(ngModel)]="newProject.type" class="form-control" id="type" name="type" required >
+                    <select [(ngModel)]="newProject.type" class="form-control" id="type" name="type">
                         <option value="default">Select project type</option>
                         <option value="business">Business</option>
                     </select>
@@ -57,8 +63,12 @@
 
                     </textarea>
                 </div>
-                <input type="button" value="X Clear" (click)="clearNewProject()" class="btn btn-default" />
-                <input type="button" value="Save" (click)="addNewProject()" class="btn btn-primary" />
+                <button type="button" (click)="clearNewProject()" class="btn btn-default">
+                    <span class="fa fa-remove"></span> Clear
+                </button>
+                <button type="button" (click)="addNewProject()" class="btn btn-primary">
+                    <span class="fa fa-save"></span> Save
+                </button>
             </fieldset>
         </form>
     </section>

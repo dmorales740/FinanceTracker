@@ -34,6 +34,7 @@ export class ExpensesComponent implements OnInit {
             .subscribe(
                 res => {
                     this.total += this.newExpense.price * this.newExpense.qty;
+                    this.total = +(this.total.toFixed(2));
                     this.newExpense = new Expense('', 0, 0);
                 },
                 error => alert("An error occur adding expense.")

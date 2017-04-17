@@ -8,3 +8,9 @@
     margin: 0px auto;
     font-style: italic;
 }
+td > a {
+    margin: 10px;
+}
+form button {
+    margin: 15px;
+}
