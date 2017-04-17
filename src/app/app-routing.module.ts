@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AccessGuard } from './services/access.guard';
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { LoginComponent } from './home/login/login.component';
@@ -16,7 +15,6 @@ const appRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AccessGuard],
     children: [
       { path: 'projects', component: ProjectListComponent },
       { path: 'details/:id', component: DetailsComponent },

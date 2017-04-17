@@ -18,14 +18,6 @@ export class OverviewComponent {
         //alert(this.project.title);
     }
     saveProject() {
-        this.projectService.saveProject(this.project)
-            .subscribe(res => {
-                if(res.nModified > 0 && res.ok == 1) {
-                    this.editProject = false;
-                } else {
-                    alert('Unable to update project.');
-                }
-            }, error => alert('Unable to update project. ' + error)
-        );
+        this.editProject = false;
     }
 }

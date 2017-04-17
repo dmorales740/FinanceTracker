@@ -30,14 +30,5 @@ export class ExpensesComponent implements OnInit {
     
     addExpense() {
         this.project.expenses.push(this.newExpense);
-        this.projectService.saveProject(this.project)
-            .subscribe(
-                res => {
-                    this.total += this.newExpense.price * this.newExpense.qty;
-                    this.newExpense = new Expense('', 0, 0);
-                },
-                error => alert("An error occur adding expense.")
-            );
-        
     }
 }

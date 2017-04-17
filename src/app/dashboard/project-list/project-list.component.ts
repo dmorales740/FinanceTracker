@@ -18,27 +18,19 @@ export class ProjectListComponent implements OnInit {
         private userService: UserService
     ) {
         this.newProject = new Project(this.userService.getUserId());
+        // Hard coded project
+        let aProject = new Project('123');
+        aProject.title = 'Example Hard Coded Project';
+        aProject.estimate = 1000;
+        aProject.budget = 500;
+        aProject.description = 'Here is the project description...';
+        aProject.type = 'business';
+        this.projects.push(aProject);
     }
-    ngOnInit(): void {
-        this.projectService.getProjectList()
-            .subscribe(list => {
-                for (let i = 0; i < list.length; i++) {
-                    this.projects.push(<Project>list[i]);
-                }
-            }, 
-            error => alert(error)
-        );
-    }
+    ngOnInit(): void { }
+    
     addNewProject() {
-        let aProject = this.newProject;
-        this.projectService.addProject(aProject)
-            .subscribe(
-                res => {
-                    aProject.id = res.id;
-                    this.projects.push(aProject);
-                }, error => alert('ERROR: ' + error)
-            );
-        this.newProject = new Project(this.userService.getUserId());
+        return false;
     }
     clearNewProject() {
         this.newProject.title = '';

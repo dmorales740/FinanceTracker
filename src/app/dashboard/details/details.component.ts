@@ -34,11 +34,6 @@ export class DetailsComponent implements OnInit {
 
     ngOnInit() {
         this.project = new Project('');
-        this.route.params.switchMap(
-            (params: Params) => this.projectService.getProject(params['id']))
-            .subscribe(res => {
-                this.project = <Project>res;
-            }, error => console.log('ERROR: ' + error));
     }
     showTab(o: boolean, e: boolean, s: boolean) {
         this.showOverview = o;
