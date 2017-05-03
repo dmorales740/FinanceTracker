@@ -8,7 +8,6 @@ import { UserService } from '../services/user.service';
 })
 export class DashboardComponent implements OnInit {
   projectsSelected = true;
-  reportsSelected = false;
   helpSelected = false;
 
   constructor(
@@ -17,9 +16,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() { }
 
-  selectTab(p: boolean, r: boolean, h: boolean) {
+  selectTab(p: boolean, h: boolean) {
     this.projectsSelected = p;
-    this.reportsSelected = r;
     this.helpSelected = h;
   }
 

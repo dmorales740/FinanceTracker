@@ -1,0 +1,266 @@
+/* Add font face */
+@font-face {
+	font-family: 'rastmo';
+	src: url("http://darielmorales.com/fonts/rastmo.ttf");
+}
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+/*
+ * Base structure
+ */
+body {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	color: #555;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+.site-wrapper{
+	min-height: 100vh;
+	height: 100%; /* For at least Firefox */
+	width: 100%;
+	max-width: 1000px;
+	position: relative;
+	margin: 0px auto;
+	padding-bottom: 50px;
+}
+
+/*
+ * Header
+ */
+.header-container {
+	width: 100%;
+	background-image: url("../images/night-sky.jpg"); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	border-bottom: 10px ridge DarkOrange;
+	border-top: 10px ridge OrangeRed;
+	text-align: center;
+	overflow: hidden;
+ }
+ header{
+	width: 90%;
+	margin: 20px auto;
+	padding-left: 120px;
+}
+.header-inner{
+	display: table;
+}
+.header-img, .header-title{
+	display: inline-block;
+	display: table-cell;
+	text-align: left;
+}
+.header-img{
+	width: 15%;
+}
+.header-img > img{
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+	border: 10px ridge #CCC;
+}
+.header-title{
+	vertical-align: middle;
+}
+.header-title > h3{
+	font-family: "rastmo", "Monotype Corsiva", "Apple Chancery", "ITC Zapf Chancery", "URW Chancery L", cursive, sans-serif; 	
+	color: DeepSkyBlue; 
+	font-size: 4em;
+	text-shadow: 3px 3px 2px White;
+}
+
+nav > ul, nav li, nav li  > i, nav li > a { 
+  display: inline-block;
+}
+nav li {
+  margin: 20px;
+}
+nav li > a {
+  padding: 2px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-radius: 10px; 
+}
+nav li > a:hover, nav li > a:focus {
+  background-color: rgba(255,255,255,.20);
+  color: #CCC;
+}
+nav ul > .active > a,
+nav ul > .active > a:hover,
+nav ul > .active > a:focus {
+    color: DarkBlue; 
+	background-color: #CCC;
+	cursor: auto;
+}
+nav > ul i.fa {
+	color: rgba(255,255,255,1.0);
+	margin-right: 5px;
+	font-size: 1.5em; 
+}
+
+#main{
+	padding: 20px;
+	overflow: hidden;
+}
+#main > p, #main > table, #main > h2, #main > dl, #main > ul, #main blockquote {
+	margin: 5px 10px;
+}
+#objectives  blockquote{
+	background-color: #CCC;
+	border: 2px solid #A9A9A9; 
+	border-radius: 10px;
+	box-shadow: 5px 5px 3px #A9A9A9;
+	text-align: left;
+	padding: 10px;
+}
+#objectives  blockquote > ul, #objectives  blockquote > ul > li{
+	margin: 10px;
+	padding: 0px;
+}
+#msg-wrap{
+	width: 100%;
+	max-width: 600px;
+	min-height: 300px;
+	padding: 20px;
+	background-color: #CCC;
+	border-radius: 15px;
+	margin: 0px auto;
+	position: relative;
+	display: block;
+	border: 1px solid #E9E9E9;
+	text-align: center;
+}
+#msg-wrap button{
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+i.fa-spinner, #conf-good, #conf-bad, #conf-btn {
+	position: relative;
+	margin-top: 30px;
+	display: none;
+}
+i.fa-check-circle{
+	font-color: LightGreen;
+}
+i.fa-exclamation-triangle{
+	font-color: Red;
+}
+i.fa-spinner{
+	margin-top: 40%;
+}
+#conf-btn{
+	margin-top: 0px;
+}
+
+/*
+ * Footer
+ */
+footer{
+	width: 100%;
+	color: #555; /* IE8 proofing */
+	color: rgba(100,100,100,.8);
+	position: absolute;
+	bottom: 0;
+	border-top: 2px solid #555;
+	text-align: center;
+}
+.col-sm-4{
+	margin: 20px auto;
+}
+/*
+ * Image links
+*/
+.img-imgLiquid{
+	width: 280px;
+	height: 200px; 
+	margin: 0px auto;
+	
+	margin: 20px auto;
+}
+.img-imgLiquid img{
+	width: 100%;
+	max-height: 100%;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px;
+	box-shadow: 5px 5px 3px #A9A9A9;
+}
+a:link img{
+	opacity: 1.0;
+	filter: alpha(opacity:100); /* IE 8 and earlier */
+}
+a:hover img{
+	opacity: 0.6;
+	filter: alpha(opacity:60); /* IE 8 and earlier */
+}
+
+@media (max-width: 760px) {
+	.header-container{
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	header{
+		width: 100%;
+		margin: 0px auto;
+		padding: 20px;
+		padding-bottom: 0px;
+	}
+	.header-img{
+		width: 20%;
+		vertical-align: middle;
+	}
+	.header-img > img{
+		border: 5px ridge #CCC;
+	}
+	.header-title > h3{
+		font-size: 2.0em;
+		text-shadow: 3px 3px 2px White;
+	}
+	nav > ul{ 
+		padding: 0px;
+		margin: 0px;
+	}
+	nav li {
+		margin: 20px 0px;
+		margin-right: 10px;
+	}
+	nav li > a {
+		font-size: 14px;
+	}
+	nav > ul i.fa {
+		margin-right: 3px;
+		font-size: 1em;
+	}
+	#main{
+		padding: 10px;
+		display: block;
+	}
+	#main h1{
+		font-size: 28px;
+		text-align: center;
+		padding: 10px;
+		border-bottom: 2px solid #777;
+	}
+	#main blockquote {
+		margin: 0px;
+	}
+	#main dl{
+		text-align: center;
+	}
+	
+}
+
+
+
+
+

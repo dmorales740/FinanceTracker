@@ -46,6 +46,9 @@ export class ProjectListComponent implements OnInit {
         this.newProject = new Project(this.userService.getUserId());
     }
     clearNewProject() {
+        console.log(this.projects[1].date.toDateString());
+    }
+    xclearNewProject() {
         this.newProject.title = '';
         this.newProject.type = 'default';
         this.newProject.budget = 0;

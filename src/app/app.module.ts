@@ -22,7 +22,7 @@ import { OverviewComponent } from './dashboard/details/overview/overview.compone
 import { ExpensesComponent } from './dashboard/details/expenses/expenses.component';
 import { ReportComponent } from './dashboard/details/report/report.component';
 import { PieChartComponent } from './dashboard/details/report/pie-chart/pie-chart.component';
-import { ReportsComponent } from './dashboard/reports/reports.component';
+import { HelpComponent } from './dashboard/help/help.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { ReportsComponent } from './dashboard/reports/reports.component';
     ExpensesComponent,
     ReportComponent,
     PieChartComponent,
-    ReportsComponent
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
