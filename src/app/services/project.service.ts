@@ -69,6 +69,30 @@ export class ProjectService {
             .catch(this.handleError);
             
     }
+
+    removeUserProjects(id) {
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const params = new URLSearchParams();
+        params.set('id', id);
+        const options = new RequestOptions({ headers: headers, search: params});
+        
+        return this.http.delete(this.apiURL + 'project/remove-all', options)
+            .map(response => response.text())
+            .catch(this.handleError);
+        
+    }
+    removeProject(id) {
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const params = new URLSearchParams();
+        params.set('id', id);
+        const options = new RequestOptions({ headers: headers, search: params});
+        
+        return this.http.delete(this.apiURL + 'project/remove', options)
+            .map(response => response.json())
+            .catch(this.handleError);
+        
+    }
+
     handleError(error: Response | any) {
         return Observable.throw(error._body);
     }

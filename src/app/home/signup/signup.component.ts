@@ -24,13 +24,14 @@ export class SignupComponent implements OnInit {
     this.msg = "";
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   registerUser() {
     if (this.user.username.trim() === "" || this.user.password.trim() === "") {
       this.msg = 'You must fill out all fields.';
       return;
     }
+    
     this.userService.registerUser(this.user)
       .subscribe(response => {
         this.router.navigate(['/login']);

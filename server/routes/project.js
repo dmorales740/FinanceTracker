@@ -8,6 +8,25 @@ const connectionString = 'mongodb://' + host + ':' + port + '/' + database;
 
 var projectsCollection;
 
+// Delete all projects from user account
+router.delete('/remove-all', (req, res) => {
+  var userId = req.query.id;
+  projectsCollection.remove({userId:userId}, (error, result) => {
+    if(error) return res.status(500).send('Error: An error occurred when trying to remove projects.');
+    return res.status(200).send('All projects were removed successfully.');
+  });
+});
+
+// Delete project
+router.delete('/remove', (req, res) => {
+  var id = req.query.id;
+  projectsCollection.remove({_id:mongodb.ObjectID(id)}, (error, result) => {
+    if(error) return res.status(500).send('Error: An error occurred when trying to remove project.');
+    if(result === 0) return res.status(400).send('Project not found.');
+    return res.status(200).json({count: result});
+  });
+});
+
 // Update project
 router.post('/update', (req, res) => {
   var id = req.body.id;

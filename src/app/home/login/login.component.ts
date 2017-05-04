@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
     this.msg = "";
     this.keepLoggedIn = true;
   }
-  ngOnInit() {
-  }
+  ngOnInit() { }
+  
   login() {
     if (this.user.username.trim() === "" || this.user.password.trim() === "") {
       this.msg = "You must fillout all fields.";

@@ -8,6 +8,15 @@ const connectionString = 'mongodb://' + host + ':' + port + '/' + database;
 
 var usersCollection;
 
+// Remove user account
+router.delete('/remove', (req, res) => {
+  var id = req.query.id;
+  usersCollection.remove({_id:mongodb.ObjectID(id)}, (error, result) => {
+    if(error) return res.status(500).send('Error: An error occurred when trying to delete user account.');
+    return res.status(200).send('User account was deleted successfully.');
+  });
+});
+
 // User login
 router.post('/login', function (req, res) {
   usersCollection.find({ username: req.body.username }, 

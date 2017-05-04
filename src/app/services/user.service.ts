@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
@@ -60,6 +60,18 @@ export class UserService {
       .map(response => response.json())
       .catch(this.handleError);
   }
+
+  deleteAccount() {
+      const headers = new Headers({ 'Content-Type': 'application/json' });
+      const params = new URLSearchParams();
+      params.set('id', this.getUserId());
+      const options = new RequestOptions({ headers: headers, search: params});
+        
+      return this.http.delete(this.apiURL + 'user/remove', options)
+          .map(response => response.text())
+          .catch(this.handleError);
+  }
+
   private handleError(error: Response | any) {
     return Observable.throw(error._body);
   }

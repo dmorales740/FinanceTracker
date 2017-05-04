@@ -30,6 +30,18 @@ export class ProjectListComponent implements OnInit {
             error => alert(error)
         );
     }
+
+    removeProject(p: Project) {
+        this.projectService.removeProject(p.id)
+            .subscribe(
+                res => {
+                    let i = this.projects.indexOf(p);
+                    this.projects.splice(i, 1);
+            }, error => alert('Error: ' + error));
+
+        return false;
+    }
+
     addNewProject() {
         let aProject = this.newProject;
         if(this.newProject.type === 'default' || this.newProject.title === '') {
@@ -46,13 +58,11 @@ export class ProjectListComponent implements OnInit {
         this.newProject = new Project(this.userService.getUserId());
     }
     clearNewProject() {
-        console.log(this.projects[1].date.toDateString());
-    }
-    xclearNewProject() {
         this.newProject.title = '';
         this.newProject.type = 'default';
         this.newProject.budget = 0;
         this.newProject.estimate = 0;
+        this.newProject.description = "";
         this.msg = '';
     }
 }
